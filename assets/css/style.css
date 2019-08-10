@@ -1,0 +1,29 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width:900px;
+    height:500px;
+    background: black;
+    border: 3px dotted red;
+    color:white;
+    
+   
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.aside{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    float:right;
+    flex-direction: row;
+     
+}
+.card-1{
+    border-right: 2px dotted red;
+}
