@@ -1,26 +1,39 @@
+
 .main-container{
     display: flex;
     justify-content: center;
     align-content: center;
-    width:900px;
+    width:800px;
     height:500px;
-    background: black;
+    background:black;
     border: 3px dotted red;
-    color:white;
-    
-   
+    color:white;  
+}
+.flex-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+/*
+.row{
+    display: flex;
+    justify-content: center;
+    align-content: left;
+    float:left;
+    flex-direction: row;
+
 }
 .container{
     display: flex;
     justify-content: center;
     align-content: center;
 }
-
+*/
 .aside{
     display: flex;
     justify-content: center;
-    align-content: center;
-    float:right;
+    align-content: left;
+    color:;
     flex-direction: row;
      
 }
