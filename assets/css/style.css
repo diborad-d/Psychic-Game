@@ -1,42 +1,64 @@
-
-.main-container{
+html {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+body{
+background-image: url(../images/super-mario.jpg);
+background-color: #cccccc; /* Used if the image is unavailable */
+background-attachment: fixed;
+background-position: center center; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: cover; 
+}
+  
+.h2,h3,h4,h5,h6{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text-box{
     display: flex;
-    justify-content: center;
     align-content: center;
-    width:800px;
-    height:500px;
-    background:black;
-    border: 3px dotted red;
-    color:white;  
+    float: center;
+    margin:auto;
+    color:red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-direction: row;
 }
 .flex-container{
     display: flex;
     justify-content: center;
     align-content: center;
+    margin-top:10%;
+   
 }
-/*
-.row{
-    display: flex;
-    justify-content: center;
-    align-content: left;
-    float:left;
-    flex-direction: row;
 
-}
-.container{
+.main-container{
     display: flex;
     justify-content: center;
     align-content: center;
+    box-sizing: border-box;
+    width:800px;
+    height:500px;
+    background:black;
+    border: 3px dotted red;
+    color:white;  
+    box-sizing: border-box; 
 }
-*/
-.aside{
-    display: flex;
-    justify-content: center;
-    align-content: left;
-    color:;
-    flex-direction: row;
-     
-}
-.card-1{
-    border-right: 2px dotted red;
-}
+
+/*
+    @media before(max-width:960px){
+      .col-1 {width: 8.33%;}
+      .col-2 {width: 16.66%;}
+      .col-3 {width: 25%;}
+      .col-4 {width: 33.33%;}
+      .col-5 {width: 41.66%;}
+      .col-6 {width: 50%;}
+      .col-7 {width: 58.33%;}
+      .col-8 {width: 66.66%;}
+      .col-9 {width: 75%;}
+      .col-10 {width: 83.33%;}
+      .col-11 {width: 91.66%;}
+      .col-12 {width: 100%;}
+      
+    }
+   */   
+
+
