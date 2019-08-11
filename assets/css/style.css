@@ -20,7 +20,7 @@ background-size: cover;
     margin:auto;
     color:red;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    flex-direction: row;
+    padding-left:60px;
 }
 .flex-container{
     display: flex;
