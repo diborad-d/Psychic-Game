@@ -8,13 +8,24 @@ const hint = ['The 2 main languages spoken in Canada are English and French.','I
 
 window.onload = function () {
   document.onkeypress = printCurrentWord;
+  // document.onkeypress = printCurrentWord;
 }
 function printCurrentWord (){
-   document.getElementById('currentWord').innerText = wordList[0];
-   
-   
+   document.getElementById('currentWord').innerText =  "Current word : " + getRandomWord();
 }    
-    
+   
+function getRandomWord() {
+ return wordList[getRandomIndex()];
+} 
+
+function getRandomIndex() {
+  return getRandomInt(wordList.length-1);
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+ 
 
 // const gameCode = {
 //   Wins = 0,
@@ -27,7 +38,7 @@ function printCurrentWord (){
 // }
 
   // function getRandomNumber() {
-  //   return Math.floor(Math.random() * z);
+  //   return Math.floor(Math.random()+ 1);
   // };
 
 //   function getNewWord() {
