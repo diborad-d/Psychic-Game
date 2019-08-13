@@ -12,6 +12,7 @@ background-size: cover;
   
 .h2,h3,h4,h5,h6{
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 .text-box{
     display: flex;
@@ -30,7 +31,7 @@ background-size: cover;
    
 }
 
-.main-container{
+#main-container{
     display: flex;
     justify-content: center;
     align-content: center;
@@ -38,11 +39,29 @@ background-size: cover;
     width:800px;
     height:500px;
     background:black;
-    border: 3px dotted red;
+    border: 3px dashed red;
     color:white;  
     box-sizing: border-box; 
 }
 
+@media screen and (max-width: 576px) {
+    
+    h1,h2,h3 {
+        font-size: 1.4em;
+    }
+    
+    h4,h5,h6{
+        font-size: 1em;
+    }
+
+    #titleText{
+        font-size: 90%;
+    }
+
+    #card-1 {
+        margin-bottom: 10px;
+    }
+}
 /*
     @media before(max-width:960px){
       .col-1 {width: 8.33%;}
