@@ -2,15 +2,17 @@ const wordList = ['Canada','Algeria','Ethiopia', 'Greece'];
 const hint = ['The 2 main languages spoken in Canada are English and French.','It is the largest country in Africa','Addis Ababa, is the capital city of this country.',
 'The offcial name of this country is Hellenic Republic.'];
 
-window.onload = function () {
-  
-  document.getElementById('currentWord').onclick = printCurrentWord;
-}
+// document.onkeypress = printCurrentWord;
+// document.onkeypress = function () { printCurrentWord };
+// document.onkeypress = function () { document.getElementById('currentWord').innerText = "Joe is nice"; };
 
+window.onload = function () {
+  document.onkeypress = printCurrentWord;
+}
 function printCurrentWord (){
    document.getElementById('currentWord').innerText = "Joe is nice";
 }    
-
+    
 
 // const gameCode = {
 //   Wins = 0,
