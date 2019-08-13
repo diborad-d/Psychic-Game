@@ -1,22 +1,24 @@
 const wordList = ['Canada','Algeria','Ethiopia', 'Greece'];
-const hint = ['The 2 main languages spoken in Canada are English and French.','It is the largest country in Africa','Addis Ababa, is the capital city of this country.',
+const hintList = ['The 2 main languages spoken in Canada are English and French.','It is the largest country in Africa','Addis Ababa, is the capital city of this country.',
 'The offcial name of this country is Hellenic Republic.'];
 
+let currentIndex = 1;
 // document.onkeypress = printCurrentWord;
 // document.onkeypress = function () { printCurrentWord };
 // document.onkeypress = function () { document.getElementById('currentWord').innerText = "Joe is nice"; };
 
-window.onload = function () {
+window.onload = function () {   //press any key to get started 
   document.onkeypress = printCurrentWord;
-  // document.onkeypress = printCurrentWord;
+}
+
+function newGame() {
+  // currentIndex = ...;
+  // currentWOrd = ...;
+  // hint = ...;
 }
 function printCurrentWord (){
-   document.getElementById('currentWord').innerText =  "Current word : " + getRandomWord();
+   document.getElementById('currentWord').innerText =  "Current words : " + wordList[currentIndex];
 }    
-   
-function getRandomWord() {
- return wordList[getRandomIndex()];
-} 
 
 function getRandomIndex() {
   return getRandomInt(wordList.length-1);
@@ -25,7 +27,8 @@ function getRandomIndex() {
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
- 
+
+
 
 // const gameCode = {
 //   Wins = 0,
