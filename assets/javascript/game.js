@@ -10,7 +10,9 @@ window.onload = function () {
   document.onkeypress = printCurrentWord;
 }
 function printCurrentWord (){
-   document.getElementById('currentWord').innerText = "Joe is nice";
+   document.getElementById('currentWord').innerText = wordList[0];
+   
+   
 }    
     
 
@@ -24,9 +26,9 @@ function printCurrentWord (){
 
 // }
 
-  function getRandomNumber() {
-    return Math.floor(Math.random() * z);
-  };
+  // function getRandomNumber() {
+  //   return Math.floor(Math.random() * z);
+  // };
 
 //   function getNewWord() {
 //      const z = this.getRandomNumber(wordsToGuessFrom.length);
