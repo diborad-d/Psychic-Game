@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Geostar+Fill&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="../assets/javascript/game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="../assets/javascript/game.js"></script>
 
     <title>mario word guess game</title>
 </head>
@@ -33,7 +33,7 @@
             <div class="container">
               <div id="main-container" class="row" >
                   <div id="card-1" class="col-xs-12 col-sm-4 col-md-4">
-                      <div><h4 id="resultTitleText"></h4></div>
+                      <div><h3 id="resultTitleText"></h3></div>
                       <div><span id="resultImage"></span></div>
                       <div><span id="resultText"></span></div>
                       <div><span id="resultSound"></span></div>
@@ -41,21 +41,25 @@
                       <!-- <audio id="throneSound"><source src="assets/images/The-Throne-Room.mp3" type="audio/mpeg"></audio> -->
                   </div>
                   <div id="card-2" class="col-xs-12 col-sm-6 offset-sm-2 col-md-6 offset-md-2 text-center">
-                      <h3>Press any key to get started!</h3>
-                      <h4 id="wins">Wins</h4>
-                      <div><span></span></div>
+                      <!-- <h3>Press any key to get started!</h3> -->
 
-                      <h4 id="currentWord">Current Word:</h4>
-                      <div><span></span></div>
-
-                      <h4 id="hint">Hint</h4>
-                      <div><span></span></div>
-
-                      <h4 id="guessesRemaining">Number of guesses remaining</h4>
-                      <div><span></span></div>
+                      <h3 id="currentWord">Current Word:</h3>
+                      <div ></div>
                       
-                      <h4 id="alreadyGuessedLetters">Letters already guessed</h4>
-                      <div><span></span></div>
+                      <h3 id="wins">Wins:</h3>
+                      <div></div>
+
+                      <h3 id="losses">Losses:</h3>
+                      <div ></div>
+
+                      <h3 id="hint">Hint:</h3>
+                      <div ></div>
+
+                      <h3  id="guessesRemaining"> Guesses remaining:</h3>
+                      <div></div>
+                      
+                      <h3>Letters already guessed:</h3>
+                      <div id="alreadyGuessedLetters"></div>
 
                   </div>
               </div>
