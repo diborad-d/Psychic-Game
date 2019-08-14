@@ -10,11 +10,18 @@ function setup() {
   var currentIndex = getRandomIndex();
 
   document.getElementById("currentWord").innerText = "Current Word: " + wordList[currentIndex];
-  document.getElementById("hint").innerText = "Hint:" + hintList[currentIndex];
+  document.getElementById("wins").innerText = "Wins: " + 0;
+  document.getElementById("losses").innerText = "Losses: " + 0;
+  document.getElementById("hint").innerText = "Hint: " + hintList[currentIndex];
+  document.getElementById("guessesRemaining").innerText = "Guesses remaining: " + 10;
+  document.getElementById("incorrectGuesses").innerText = "Incorrect Guesses: " + "N/A";
+
+
+
+
 }
 
 function getRandomIndex() { 
   return Math.floor(Math.random() * Math.floor(wordList.length-1));
 }
-
 
