@@ -84,8 +84,6 @@ function myFunction(keyCode) {
   if (guessesRemaining == 0) {
     alert("Game Over");
     document.getElementById("loseSound").play();
-    document.getElementById("crush.gif").play();
-
     document.getElementById("losses").innerText = "Losses: " + ++losses;
   }
   for (let i = 0; i < currentWord.length; i++) {
@@ -99,8 +97,6 @@ function myFunction(keyCode) {
   //WINS
   if (!currentWord.includes("_")) {
     alert("Congratulations! You Won!");
-    document.getElementById("dance.gif").play();
-
     document.getElementById("winSound").play();
     document.getElementById("wins").innerText = "Wins: " + ++wins;
   }
