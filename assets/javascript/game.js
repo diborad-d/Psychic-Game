@@ -18,20 +18,34 @@ window.onload = function() {
   document.onkeyup = function(ev) {
     myFunction(ev.keyCode);
   };
+  myInstructions();
+
   hint.onclick = myHint;
 };
-
 function setup() {
   currentIndex = getRandomIndex();
 
-  document.getElementById("currentWord").innerText = "Current Word: " + getCurrentWordWithAllDashes();
+  document.getElementById("currentWord").innerText =
+    "Current Word: " + getCurrentWordWithAllDashes();
   document.getElementById("wins").innerText = "Wins: " + wins;
   document.getElementById("losses").innerText = "Losses: " + losses;
-  document.getElementById("hint").innerText = "Hint: click here to reveal hints ";
-  document.getElementById("guessesRemaining").innerText = "Guesses remaining: " + 10;
-  document.getElementById("incorrectGuesses").innerText ="Incorrect Guesses: " + 0;
+  document.getElementById("hint").innerText =
+    "Hint: click here to reveal hints ";
+  document.getElementById("guessesRemaining").innerText =
+    "Guesses remaining: " + 10;
+  document.getElementById("incorrectGuesses").innerText =
+    "Incorrect Guesses: " + 0;
 }
 
+function myInstructions() {
+  alert(
+    "Instructions" + "\n" +
+    "- The theme of the game is names of counties around the globe." + "\n" +
+    "- Click on 'Hint' to reveal fun facts about each country." + "\n" +
+    "- You have 10 tries." + "\n" +
+    "- Have fun!!"
+  );
+}
 function myHint() {
   document.getElementById("hint").innerText = "Hint: " + hintList[currentIndex];
 }
@@ -80,27 +94,26 @@ function myFunction(keyCode) {
     }
   }
   currentWord = currentWord.join(" ");
-  document.getElementById("currentWord").innerText = "Current Word: " + currentWord;
-//WINS
-    if (!currentWord.includes("_")){
-      alert("Congratulations! You Won!");
-      document.getElementById("dance.gif").play();
+  document.getElementById("currentWord").innerText =
+    "Current Word: " + currentWord;
+  //WINS
+  if (!currentWord.includes("_")) {
+    alert("Congratulations! You Won!");
+    document.getElementById("dance.gif").play();
 
-      document.getElementById('winSound').play();
-      document.getElementById("wins").innerText = "Wins: " + ++wins;
-    }
-
+    document.getElementById("winSound").play();
+    document.getElementById("wins").innerText = "Wins: " + ++wins;
+  }
 }
-resetGame: function reset(){
-window.onload = setup();
-currentIndex = getRandomIndex();
-lettersGuessed = [];
-incorrectGuesses = [];
-guessesRemaining = 10;
-losses = 0;
-wins = 0;
-this.updateDOM();
-this.getCurrentWord();
-this.resetCondition = false;
+resetGame: function reset() {
+  window.onload = setup();
+  currentIndex = getRandomIndex();
+  lettersGuessed = [];
+  incorrectGuesses = [];
+  guessesRemaining = 10;
+  losses = 0;
+  wins = 0;
+  this.updateDOM();
+  this.getCurrentWord();
+  this.resetCondition = false;
 }
-

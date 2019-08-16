@@ -32,9 +32,18 @@
             
             <div class="container">
               <div id="main-container" class="row" >
+                    <!-- <p id="instructions">
+                        'Instructions',
+                           '- the theme of the game is names of counties around the WebGLObject.' ,
+                           '- Click on 'HINT' to reveal fun facts about each country.',
+                           ' - You have 10 tries.',
+                            '- Have fun!! '
+                    </p> -->
                     <audio id="winSound" src="mp3/stage_clear.wav" autoplay></audio> 
                     <audio id="loseSound" src="mp3/gameover.wav" autoplay></audio>
-                  
+                  <div id="card-1" class="col-xs-12 col-sm-4 col-md-4">          
+                        <img id="side-img" src="images/mario.jpg" alt="Card image" width="300px", height ="300px">
+                  </div>
                   <div id="card-2" class="col-xs-12 col-sm-6 offset-sm-2 col-md-6 offset-md-2 text-center">
                       <!-- <h3>Press any key to get started!</h3> -->
                       <h3 class="text-left" id="currentWord">Current Word:</h3>
@@ -46,7 +55,7 @@
                       <h3 class="text-left" id="guessesRemaining"> Guesses remaining:</h3>
                       <div></div>                   
                       <h3 class="text-left" id="incorrectGuesses">Incorrect Guesses:</h3>
-                      
+                      <div></div>
                   </div>
               </div>
           </div>        

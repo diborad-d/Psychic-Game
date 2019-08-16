@@ -28,8 +28,6 @@ background-size: cover;
     justify-content: center;
     align-content: center;
     margin-top: 3%; 
-   
-   
 }
 
 #main-container{
@@ -44,7 +42,9 @@ background-size: cover;
     color:white;  
     box-sizing: border-box; 
 }
-
+   #hint:hover{
+     background-color:gray; 
+   }
 @media screen and (max-width: 576px) {
     
     h1,h2,h3 {
@@ -58,12 +58,9 @@ background-size: cover;
     #titleText{
         font-size: 90%;
     }
-
-    #card-1 {
-        margin-bottom: 10px;
-    }
+    
 }
-
+/* 
     @media before(max-width:960px)
       .col-1 {width: 8.33%;}
       .col-2 {width: 16.66%;}
@@ -79,6 +76,6 @@ background-size: cover;
       .col-12 {width: 100%;}
     }
 
-   
+    */
 
 
