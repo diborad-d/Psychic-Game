@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Hangman | Stretch Projects</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Hangman | <strong>Stretch Projects</strong></h1>
+            </div>
+
+            <div class="col-md-2">
+                <div id="hangman_img" class="image0"></div>
+            </div>
+
+            <div id="word" class="col-md-4 text-center">
+                <h4>Your word is:</h4>
+                <p><strong id="targetWord"></strong></p>
+            </div>
+
+            <div id="guesses" class="col-md-4 text-center">
+                <h4>You have guessed</h4>
+                <p><strong id="previousGuesses"><em>nothing yet... guess a letter</em></strong></p>
+            </div>
+
+            <div class="row">
+                <div id="guessInput" class="col-md-8 text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <input type="text" maxlength="1" id="guess" placeholder="Type a letter" />
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/hangman.js" type="text/javascript"></script>
+        <div class="modal fade" id="endGameDialog" tabindex="-1" role="dialog" aria-labelledby="endGameDialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4><a onclick="resetGame();" class="close" data-dismiss="modal" aria-hidden="true">&times;</a></h4>
+                        <h4 id="endGameDialogTitle"></h4>
+                    </div>
+                    <div class="modal-body" id="endGameDialogContent"></div>
+                    <div class="modal-footer">
+                        <h4><a onclick="resetGame();" class="btn btn-primary" data-dismiss="modal">Reset</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    </body>
+</html>
+
+//
+var wordList = [
+  "javascript",
+  "monkey",
+  "amazing",
+  "pancake",
+  ],
+
+
+  targetWord = '',
+  guesses = [],
+  maxLives = 6;
+      
+    var letter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+ // Create an array of words
+
+
+   function loadWordList(){
+     var word = '';
+
+   }
+   function newWord() {
+    targetWord = wordList[Math.floor(Math.random() * wordList.length)];
+}
+
+function obfuscateWord() {
+    var obWord = '';
+
+    for (var i = 0; i < targetWord.length; i++) {
+        if (guesses.indexOf(targetWord[i].toLowerCase(), 0) == -1) {
+            obWord += '_';
+        } else {
+            obWord += targetWord[i];
+        }
+    }
+    return obWord;
+}
+
+function drawWord() {
+    while (targetWord == '') {
+        newWord();
+    }
+    $('#targetWord').html(targetWord);
+}
+
+function drawGuesses() {
+    guesses.sort();
+    $('#previousGuesses').html(guesses.join(', '));
+}
+
+function cleanGuess() {
+    var uniqueGuesses = [];
+    $.each(guesses, function(index, element) {
+        if (element.length > 0 && $.inArray(element, uniqueGuesses) == -1) {
+            uniqueGuesses.push(element);
+        }
+    });
+    guesses = uniqueGuesses;
+}
+
+function addGuess() {
+    if (/^[a-zA-Z]*$/.test($('#guess').val()) && typeof $('#guess').val() !== "undefined") {
+        guesses.push($('#guess').val().toLowerCase());
+    }
+
+    $('#guess').val('');
+}
+
+function endGameDialog(isWinner) {
+    if (isWinner) {
+        $('#endGameDialogTitle').html('You won');
+        $('#endGameDialogContent').html('You guessed ' + targetWord + ' in ' + guesses.length + ' attempts');
+    } else {
+        $('#endGameDialogTitle').html('You lost');
+        $('#endGameDialogContent').html('Unlucky.  The word was ' + targetWord);
+    }
+
+    $('#endGameDialog').modal('toggle');
+}
+
+function reviewLives() {
+    var livesRemaining = maxLives,
+            string = targetWord.toLowerCase();
+
+    for (var i = 0; i < guesses.length; i++) {
+        if (string.indexOf(guesses[i], 0) == -1) {
+            livesRemaining--;
+        }
+    }
+
+    if (livesRemaining <= 0) {
+        setImage(0);
+        endGameDialog(false);
+        return;
+    }
+
+    setImage(maxLives - livesRemaining);
+}
+
+function checkIfWon() {
+    if (obfuscateWord() == targetWord) {
+        endGameDialog(true);
+    }
+}
+
+function resetGame() {
+    setImage(0);
+    targetWord = '';
+    guesses = [];
+    newWord();
+}
+
+function update() {
+    addGuess();
+    cleanGuess();
+    drawWord();
+    drawGuesses();
+    reviewLives();
+    checkIfWon();
+}
+
+$(document).ready(function() {
+    loadwordList();
+    drawWord();
+    drawGuesses();
+    $('#guess').attr('onkeyup', 'update();');
+});
+
+    /*
+    var choice = words[Math.floor(Math.random() * 4)];
+    var answer = game [choice];
+    var myLength = answer.length;
+    var display=[myLength];
+    var win = myLength;
+    var attemptsLeft = 10;
+    var output="";
+    var userLetter="";
+
+    var setup = function(){
+        for (var i=0; i<answer.length;i++){
+            display[i] = " _ ";
+            output = output + display[i];
+        }
+        document.getElementById("game").innerHTML = output;
+        output ="";
+    }
+ var submit = function(){
+     output = "";
+     userLetter=$("letter").value;
+     $("letter").value ="";
+
+     for (var c=0; c<answer.length; c++){
+         alert(letters[c]);
+     }
+ }
+
+  
+    for (var i = 0; i < letters.length; i++) {
+     if(answer == guess){
+         alert("you Guessed Correctly!");
+         break;
+     }else{
+         guess = prompt("Sorry Try Again");
+     }
+
+
+
+      var letterBtn = $("<button>");
+
+      
+      letterBtn.addClass("letter-button letter letter-button-color");
+
+     
+      letterBtn.attr("data-letter", letters[i]);
+
+     
+      letterBtn.text(letters[i]);
+
+      
+      $("#buttons").append(letterBtn);
+
+    }
+
+    
+    $(".letter-button").on("click", function() {
+
+     
+      var lettersGuess = $("<div>");
+
+     
+      lettersGuess.addClass("letter lettersGuess-color");
+
+      lettersGuess.text($(this).attr("data-letter"));
+
+      
+      $("#display").append(lettersGuess);
+
+    });
+
+    
+    $("#clear").on("click", function() {
+
+      $("#display").empty();
+
+    });
+
+  });
+  */
+
+
+document.onkeypress = printCurrentWord;
+document.onkeypress = function () { printCurrentWord };
+document.onkeypress = function () { document.getElementById('currentWord').innerText = "Joe is nice"; };
+
+the following code are exactly the same : 
+window.onload = function () {
+  document.onkeypress = printCurrentWord;
+}
+
+//
+function printCurrentWord (){
+   document.getElementById('currentWord').innerText = "Joe is nice";
+}    
+//
+ return getRandomInt(wordList.length-1);
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
