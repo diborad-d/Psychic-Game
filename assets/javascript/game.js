@@ -15,18 +15,19 @@ let wins = 0;
 window.onload = function() {
   myInstructions();
   setup();
-
-  document.onkeyup = function(ev) {
-    myFunction(ev.keyCode);
-  };
-
-  hint.onclick = myHint;
-
+  registerEvents();
+}
+function registerEvents(){
+  hint.onclick = showHint;
   $("#reset_btn").on("click", function() {
     setup();
  });
-
+ document.onkeyup = function(ev) {
+  gameFunction(ev.keyCode);
 };
+
+}
+
 function setup() {
   currentIndex = getRandomIndex();
 
@@ -41,7 +42,7 @@ function setup() {
 function myInstructions() {
   alert("Instructions" + "\n" + "- The theme of the game is names of counties around the globe." + "\n" + "- Click on 'Hint' to reveal fun facts about each country." + "\n" + "- You have 10 tries." + "\n" + "- Have fun!!");
 }
-function myHint() {
+function showHint() {
   document.getElementById("hint").innerText = "Hint: " + hintList[currentIndex];
 }
 function getRandomIndex() {
@@ -56,7 +57,7 @@ function getCurrentWordWithAllDashes() {
   currentWord = currentWord.join(" ");
   return currentWord;
 }
-function myFunction(keyCode) {
+function gameFunction(keyCode) {
   const letter = String.fromCharCode(keyCode).toUpperCase();
   if (keyCode < 65 || keyCode > 90) {
     return;
