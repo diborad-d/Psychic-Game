@@ -42,6 +42,13 @@ background-size: cover;
     color:white;  
     box-sizing: border-box; 
 }
+#reset_btn{
+    color: white;
+    background-color: blue;
+    width: 100px;
+    height: 40px;
+    margin-left: 100%;
+}
    #hint:hover{
      background-color:gray; 
    }
@@ -60,8 +67,8 @@ background-size: cover;
     }
     
 }
-/* 
-    @media before(max-width:960px)
+
+    @media before(max-width:960px);
       .col-1 {width: 8.33%;}
       .col-2 {width: 16.66%;}
       .col-3 {width: 25%;}
@@ -76,6 +83,6 @@ background-size: cover;
       .col-12 {width: 100%;}
     }
 
-    */
+   
 
 

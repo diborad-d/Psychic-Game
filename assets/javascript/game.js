@@ -1,10 +1,9 @@
 const wordList = ["CANADA", "ALGERIA", "ETHIOPIA", "GREECE"];
 const hintList = [
-  "The 2 main languages spoken in this country are English and French.",
-  "It is the largest country in Africa",
-  "Addis Ababa, is the capital city of this country.",
-  "The official name of this country is Hellenic Republic."
-];
+  "The 2 main languages spoken in this country are English and French.", 
+  "It is the largest country in Africa", "Addis Ababa, is the capital city of this country.",
+   "The official name of this country is Hellenic Republic."
+  ];
 
 let currentIndex = getRandomIndex();
 let lettersGuessed = [];
@@ -14,37 +13,33 @@ let losses = 0;
 let wins = 0;
 
 window.onload = function() {
+  myInstructions();
   setup();
+
   document.onkeyup = function(ev) {
     myFunction(ev.keyCode);
   };
-  myInstructions();
 
   hint.onclick = myHint;
+
+  $("#reset_btn").on("click", function() {
+    setup();
+ });
+
 };
 function setup() {
   currentIndex = getRandomIndex();
 
-  document.getElementById("currentWord").innerText =
-    "Current Word: " + getCurrentWordWithAllDashes();
+  document.getElementById("currentWord").innerText = "Current Word: " + getCurrentWordWithAllDashes();
   document.getElementById("wins").innerText = "Wins: " + wins;
   document.getElementById("losses").innerText = "Losses: " + losses;
-  document.getElementById("hint").innerText =
-    "Hint: click here to reveal hints ";
-  document.getElementById("guessesRemaining").innerText =
-    "Guesses remaining: " + 10;
-  document.getElementById("incorrectGuesses").innerText =
-    "Incorrect Guesses: " + 0;
+  document.getElementById("hint").innerText = "Hint: click here to reveal hints ";
+  document.getElementById("guessesRemaining").innerText = "Guesses remaining: " + 10;
+  document.getElementById("incorrectGuesses").innerText = "Incorrect Guesses: " + 0;
 }
 
 function myInstructions() {
-  alert(
-    "Instructions" + "\n" +
-    "- The theme of the game is names of counties around the globe." + "\n" +
-    "- Click on 'Hint' to reveal fun facts about each country." + "\n" +
-    "- You have 10 tries." + "\n" +
-    "- Have fun!!"
-  );
+  alert("Instructions" + "\n" + "- The theme of the game is names of counties around the globe." + "\n" + "- Click on 'Hint' to reveal fun facts about each country." + "\n" + "- You have 10 tries." + "\n" + "- Have fun!!");
 }
 function myHint() {
   document.getElementById("hint").innerText = "Hint: " + hintList[currentIndex];
@@ -75,10 +70,8 @@ function myFunction(keyCode) {
 
   if (!currentWord.includes(letter)) {
     incorrectGuesses.push(letter);
-    document.getElementById("incorrectGuesses").innerText =
-      "Incorrect Guesses: " + incorrectGuesses;
-    document.getElementById("guessesRemaining").innerText =
-      " Guesses remaining: " + --guessesRemaining;
+    document.getElementById("incorrectGuesses").innerText = "Incorrect Guesses: " + incorrectGuesses;
+    document.getElementById("guessesRemaining").innerText = " Guesses remaining: " + --guessesRemaining;
   }
   //game over/losses
   if (guessesRemaining == 0) {
@@ -92,8 +85,7 @@ function myFunction(keyCode) {
     }
   }
   currentWord = currentWord.join(" ");
-  document.getElementById("currentWord").innerText =
-    "Current Word: " + currentWord;
+  document.getElementById("currentWord").innerText = "Current Word: " + currentWord;
   //WINS
   if (!currentWord.includes("_")) {
     alert("Congratulations! You Won!");
@@ -101,15 +93,7 @@ function myFunction(keyCode) {
     document.getElementById("wins").innerText = "Wins: " + ++wins;
   }
 }
-resetGame: function reset() {
-  window.onload = setup();
-  currentIndex = getRandomIndex();
-  lettersGuessed = [];
-  incorrectGuesses = [];
-  guessesRemaining = 10;
-  losses = 0;
-  wins = 0;
-  this.updateDOM();
-  this.getCurrentWord();
-  this.resetCondition = false;
-}
+
+  
+
+
