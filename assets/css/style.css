@@ -42,7 +42,7 @@ background-size: cover;
     color:white;  
     box-sizing: border-box; 
 }
-#reset_btn{
+#resetBtn{
     color: white;
     background-color: blue;
     width: 100px;

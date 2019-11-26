@@ -1,9 +1,5 @@
 const wordList = ["CANADA", "ALGERIA", "ETHIOPIA", "GREECE"];
-const hintList = [
-  "The 2 main languages spoken in this country are English and French.", 
-  "It is the largest country in Africa", "Addis Ababa, is the capital city of this country.",
-   "The official name of this country is Hellenic Republic."
-  ];
+const hintList = ["The 2 main languages spoken in this country are English and French.", "It is the largest country in Africa", "Addis Ababa, is the capital city of this country.", "The official name of this country is Hellenic Republic."];
 
 let currentIndex = getRandomIndex();
 let lettersGuessed = [];
@@ -16,16 +12,11 @@ window.onload = function() {
   myInstructions();
   setup();
   registerEvents();
-}
-function registerEvents(){
-  hint.onclick = showHint;
-  $("#reset_btn").on("click", function() {
-    setup();
- });
- document.onkeyup = function(ev) {
-  gameFunction(ev.keyCode);
 };
-
+function registerEvents() {
+  hint.onclick = showHint;
+  resetBtn.onclick = setup;
+  document.onkeyup = (ev) => gameFunction(ev.keyCode);
 }
 
 function setup() {
@@ -94,7 +85,3 @@ function gameFunction(keyCode) {
     document.getElementById("wins").innerText = "Wins: " + ++wins;
   }
 }
-
-  
-
-
